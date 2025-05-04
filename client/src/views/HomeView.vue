@@ -9,8 +9,9 @@ const router = useRouter()
 </script>
 
 <template>
-  <main className=" h-screen bg-amber-50">
+  <main className=" min-h-screen bg-amber-50">
     <Header />
+
   </main>
 </template>
 
