@@ -12,7 +12,7 @@ const areaSchema = new mongoose.Schema({
         ref: 'Room',
         required: true,
     },
-    name: { type: String, required: true },
+    name: { type: String },
     width: { type: Number, required: true },
     length: { type: Number, required: true },
 }, { timestamps: true })

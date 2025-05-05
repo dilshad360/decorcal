@@ -1,13 +1,15 @@
 // router/index.js
 import { createRouter, createWebHistory } from 'vue-router'
+import { useAuthStore } from '@/stores/auth'
 import HomeView from './views/HomeView.vue'
 import LoginView from './views/LoginView.vue'
-import { useAuthStore } from '@/stores/auth'
 import ClientView from './views/ClientView.vue'
+import RoomView from './views/RoomView.vue'
 
 const routes = [
   { path: '/', component: HomeView, meta: { requiresAuth: true } },
   { path: '/client/:id', component: ClientView, meta: { requiresAuth: true } },
+  { path: '/room/:id', component:RoomView , meta: { requiresAuth: true } },
   { path: '/login', component: LoginView },
   // { path: '/:catchAll(.*)*', component: LoginView },
 ]

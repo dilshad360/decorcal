@@ -25,10 +25,10 @@
 import { Icon } from '@iconify/vue'
 import { useClientStore } from '@/stores/client'
 import { useRouter } from 'vue-router'
-const router = useRouter()
 
 
 const clientStore = useClientStore()
+const router = useRouter()
 
 const props = defineProps({
     client: Object,
