@@ -25,8 +25,8 @@ app.get('/', (req, res) => {
 app.use('/auth', authRoutes);
 app.use('/c', meRoutes);
 app.use('/clients', clientRoutes)
-app.use('/api/rooms', roomRoutes)
-app.use('/api/areas', areaRoutes)
+app.use('/rooms', roomRoutes)
+app.use('/areas', areaRoutes)
 
 
 app.listen(5000, () => console.log('Server running on port 5000'));
