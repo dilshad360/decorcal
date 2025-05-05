@@ -1,7 +1,7 @@
 <template>
-    <div class="px-4 pt-6 pb-4 flex justify-between items-center">
+    <div class="px-4 pt-6 pb-4 flex justify-between items-center shadow-md mb-2 bg-white rounded-b-sm">
         <h2 class="text-2xl font-medium capitalize text-gray-500">
-            Hi {{ userStore.currentUser?.name || 'User' }} 👋
+            Hi {{ userStore.currentUser?.name || '...' }} 👋
         </h2>
 
         <div className="dropdown dropdown-end">
@@ -11,7 +11,7 @@
                 <Icon icon="prime:user" class="text-gray-500" width="24" height="24" />
             </div>
             <ul tabIndex="{0}" className="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
-                <li><a>Settings</a></li>
+                <!-- <li><a>Settings</a></li> -->
                 <li>
                     <div @click="handleLogout">Logout</div>
                 </li>

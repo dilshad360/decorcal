@@ -2,7 +2,6 @@
 import { reactive } from 'vue'
 import { useVuelidate } from '@vuelidate/core'
 import { required } from '@vuelidate/validators'
-import api from '@/services/axios'
 import { useClientStore } from '@/stores/client'
 
 
@@ -35,21 +34,7 @@ const submitForm = async () => {
     const isValid = await v$.value.$validate()
     
     if (isValid) {
-
-
-        console.log('Form submitted:', formData)
-
         clientStore.addClient(formData)
-
-    //     try {
-    // const response = await api.post('/clients', formData)
-    //         console.log('Form submitted successfully:', response.data)
-    //         alert('Form submitted successfully!')
-    //     } catch (error) {
-    //         console.error('Error submitting form:', error)
-    //         alert('Failed to submit form. Please try again.')
-    //     }
-        
         // Reset form
         formData.name = ''
         formData.phoneNumber = ''
@@ -74,7 +59,7 @@ const closeModal = () => {
 <template>
     <div v-if="show" class="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
         <div class="bg-white p-6 rounded-lg w-full max-w-md shadow-xl">
-            <h2 class="text-xl font-semibold mb-4">Add Info</h2>
+            <h2 class="text-xl font-semibold mb-4">Add Client</h2>
             <form @submit.prevent="submitForm" class="space-y-4">
                 <div>
                     <label class="block text-sm font-medium">Name</label>

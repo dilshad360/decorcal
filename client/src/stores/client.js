@@ -1,7 +1,5 @@
 // src/stores/client.js
 import { defineStore } from 'pinia'
-import axios from 'axios'
-import { useAuthStore } from './auth'
 import api from '../services/axios'
 
 export const useClientStore = defineStore('client', {
@@ -26,10 +24,20 @@ export const useClientStore = defineStore('client', {
         async addClient(newClient) {
             try {
                 await api.post('clients', newClient)
-                await this.fetchClients() // Refresh list
+                await this.fetchClients() 
             } catch (error) {
                 console.error('Error adding client:', error)
             }
         },
+
+        async deleteClient(clientId) {
+            try {
+                await api.delete(`clients/${clientId}`)
+                await this.fetchClients() 
+            } catch (error) {
+                console.error('Error deleting client:', error)
+            }
+        }
+
     },
 })
