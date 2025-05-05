@@ -1,5 +1,6 @@
 <template>
-    <li class="p-4 bg-white shadow rounded flex justify-between items-start">
+    <RouterLink  :to="`/client/${client._id}`" >
+    <li class="p-4 bg-white shadow rounded flex justify-between items-start mb-2"  >
         <!-- Client Info -->
         <div>
             <p><strong>Name:</strong> {{ client.name }}</p>
@@ -18,11 +19,14 @@
             </ul>
         </div>
     </li>
+    
+</RouterLink>
 </template>
 
 <script setup>
 import { Icon } from '@iconify/vue'
 import { useClientStore } from '@/stores/client'
+import { RouterLink } from 'vue-router'
 
 
 const clientStore = useClientStore()

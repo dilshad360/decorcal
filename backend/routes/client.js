@@ -36,6 +36,26 @@ router.get("/", auth, async (req, res) => {
     }
 });
 
+// GET /clients/:id - Get a single client by ID
+router.get("/:id", auth, async (req, res) => {
+    try {
+        const client = await Client.findOne({
+            _id: req.params.id,
+            userId: req.user.id, // Ensure the client belongs to the authenticated user
+        });
+
+        if (!client) {
+            return res.status(404).send("Client not found or unauthorized");
+        }
+
+        res.json(client);
+    } catch (error) {
+        console.error("Error fetching client:", error);
+        res.status(500).send("Server error");
+    }
+});
+
+
 // DELETE /clients/:id - Delete a client by ID (only if it belongs to the user)
 router.delete("/:id", auth, async (req, res) => {
     try {
