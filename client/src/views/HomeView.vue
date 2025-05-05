@@ -2,6 +2,7 @@
 import { ref, onMounted, computed } from 'vue'
 import { useClientStore } from '@/stores/client'
 import { useRouter } from 'vue-router'
+import { Icon } from '@iconify/vue'
 import Header from '@/components/Header.vue'
 import ClientModal from '@/components/modals/ClientModal.vue'
 import ClientListCard from '@/components/ClientListCard.vue'
@@ -27,8 +28,12 @@ const filteredClients = computed(() => {
     <Header />
 
     <div class="flex-1 overflow-y-auto px-4 py-2">
-      <input v-model="searchQuery" class="input input-bordered w-full mb-2" type="search" required
+      <label className=" input input-bordered w-full mb-2">
+        <Icon icon="jam:search" class="text-gray-500" width="20" height="20" />
+        
+      <input v-model="searchQuery"  type="search" required
         placeholder="Search" />
+      </label>
 
       <div class="flex justify-center" v-if="clientStore.loading">
         <progress className="progress w-[90%] opacity-50"></progress>
