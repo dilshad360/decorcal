@@ -15,15 +15,12 @@
                     <p v-if="v$.width.$error" class="mt-1 text-sm text-red-600">Width is required</p>
                 </div>
                 <div>
-                    <label class="block text-sm font-medium">Height</label>
-                    <input v-model="formData.height" type="number" class="w-full input input-bordered"
-                        :class="{ 'border-red-500': v$.height.$error }" />
-                    <p v-if="v$.height.$error" class="mt-1 text-sm text-red-600">Height is required</p>
+                    <label class="block text-sm font-medium">Length</label>
+                    <input v-model="formData.length" type="number" class="w-full input input-bordered"
+                        :class="{ 'border-red-500': v$.length.$error }" />
+                    <p v-if="v$.length.$error" class="mt-1 text-sm text-red-600">Length is required</p>
                 </div>
             </div>
-
-            
-
 
                 <div class="flex justify-end space-x-2 pt-4">
                     <button type="button" class="btn btn-outline" @click="closeModal">Cancel</button>
@@ -53,7 +50,7 @@ const areaStore = useAreaStore()
 const formData = reactive({
     roomId: props.id,
     width: '',
-    height: '',
+    length: '',
 })
 
 
@@ -61,7 +58,7 @@ const formData = reactive({
 // Basic validation rules
 const rules = {
     width: { required },
-    height: { required },
+    length: { required },
 }
 
 // Create Vuelidate instance
@@ -75,8 +72,6 @@ const submitForm = async () => {
 
         console.log('Form data:', formData)
         areaStore.addArea(formData)
-
-    
 
         v$.value.$reset()
         
